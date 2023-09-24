@@ -31,7 +31,10 @@ class _ChairDetailPageState extends State<ChairDetailPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Text('CHAIR'),
+          Text(
+            'CHAIR',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
           Text(widget.chair.chairName),
           const Text('Form'),
           Text(widget.chair.chairPrice),
