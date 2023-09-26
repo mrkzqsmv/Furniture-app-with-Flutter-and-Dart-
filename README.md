@@ -1,3 +1,1 @@
-# furniture_app
-
-"A new Flutter project."
+# Furniture app with Flutter and Dart
