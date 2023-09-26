@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
   AppBar buildAppBar() {
     return AppBar(
       leading: Padding(
-        padding: Constants.home_page_menu_icon,
+        padding: Constants.homePageMenuIcon,
         child: InkWell(
           onTap: () {},
           child: SvgPicture.asset(
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
           ),
           label: const Text(
             'Scan',
-            style: Constants.home_page_scan_text,
+            style: Constants.homePageScanText,
           ),
         ),
       ],

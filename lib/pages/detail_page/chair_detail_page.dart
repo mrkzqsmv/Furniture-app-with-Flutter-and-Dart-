@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:furniture_app/constants/app_constants.dart';
 import 'package:furniture_app/models/chair.dart';
 
 class ChairDetailPage extends StatefulWidget {
@@ -27,50 +28,90 @@ class _ChairDetailPageState extends State<ChairDetailPage> {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(
-            'CHAIR',
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-          Text(widget.chair.chairName),
-          const Text('Form'),
-          Text(widget.chair.chairPrice),
-          const Text('Available Colors'),
-          Row(
-            children: [
-              colorDot(Colors.green),
-              const SizedBox(
-                width: 5,
-              ),
-              colorDot(Colors.grey),
-              const SizedBox(
-                width: 5,
-              ),
-              colorDot(Colors.black),
-            ],
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.5,
-            height: MediaQuery.of(context).size.height * 0.05,
-            decoration: BoxDecoration(
-              color: Colors.purple.shade300,
-              boxShadow: const [BoxShadow(blurRadius: 10)],
-              borderRadius: BorderRadius.circular(15),
+      body: Padding(
+        padding: const EdgeInsets.all(17.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            const Text(
+              'CHAIR',
+              style: Constants.detailPageCategoryName,
             ),
-            child: const Center(child: Text('Add to Cart')),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: CircleAvatar(
+            const SizedBox(
+              height: 15,
+            ),
+            Text(widget.chair.chairName,
+                style: Constants.detailPageCategoryName),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+              'Form',
+              style: Constants.detailPageFormName,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              widget.chair.chairPrice,
+              style: Constants.detailPagePrice,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+              'Available Colors',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Row(
+              children: [
+                colorDot(Colors.green),
+                const SizedBox(
+                  width: 5,
+                ),
+                colorDot(Colors.grey),
+                const SizedBox(
+                  width: 5,
+                ),
+                colorDot(Colors.black),
+              ],
+            ),
+            Align(
+              alignment: Alignment.centerRight,
               child: CircleAvatar(
-                child: Image.asset(widget.chair.chairImgPath),
+                maxRadius: 100,
+                child: Hero(
+                  tag: widget.chair,
+                  child: CircleAvatar(
+                    maxRadius: 100,
+                    child: Image.asset(
+                      widget.chair.chairImgPath,
+                      width: 300,
+                      height: 500,
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
-        ],
+            const SizedBox(
+              height: 80,
+            ),
+            Container(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height * 0.05,
+              decoration: BoxDecoration(
+                color: Colors.purple.shade300,
+                boxShadow: const [BoxShadow(blurRadius: 10)],
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: const Center(child: Text('Add to Cart')),
+            ),
+          ],
+        ),
       ),
     );
   }

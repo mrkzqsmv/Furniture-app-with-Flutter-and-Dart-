@@ -36,7 +36,7 @@ class RowLineWatchesInHomePage extends StatelessWidget {
                   child: Column(
                     children: [
                       Hero(
-                        tag: allWatches,
+                        tag: allWatches[index],
                         child: CircleAvatar(
                           radius: 50,
                           child: Image.asset(
